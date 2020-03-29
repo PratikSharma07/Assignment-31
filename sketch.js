@@ -6,15 +6,18 @@ var food;
 var w;
 var h;
 var bg;
+
 var up = new Audio();
 var right = new Audio();
 var left = new Audio();
 var down = new Audio();
+var eat = new Audio();
 
 up.src = "audio/up.mp3";
 right.src = "audio/right.mp3";
 left.src = "audio/left.mp3";
 down.src = "audio/down.mp3";
+eat.src = "audio/eat.mp3";
 
 function preload(){
 bg = loadImage("image/bg.png");
@@ -54,6 +57,7 @@ function draw() {
   background(bg);
   if (snake.eat(food)) {
     foodLocation();
+    eat.play();
   }
   snake.update();
   snake.display();
